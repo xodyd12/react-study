@@ -26,16 +26,25 @@ const ExpenseItem = ({ title, price: prosPrice, date }) => {
 
   //숫자를 원화 표기법으로 바꾸기
   const formattedPrice = new Intl.NumberFormat('ko-KR').format(prosPrice);
+
+  //버튼 가져오기
+  const clickHandler = e => {
+    console.log('버튼 클릭함!');
+  }
+
+  
   return (
-    <Card className='circle'>
-    <div className="expense-item">
+    
+    <Card className="expense-item">
       <ExpensDate date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">{formattedPrice}원</div>
       </div>
-    </div>
+      <button id='btn' onClick={clickHandler}>수정!</button>
+      <button id='btn' onClick={e => {console.log('삭제!')}}>수정!</button>
     </Card>
+    
   );
 };
 
