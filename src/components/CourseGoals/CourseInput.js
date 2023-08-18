@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CourseInput.css';
+import styles from './CourseInput.module.css';
 import Button from '../UI/Button/Button';
 
 const CourseInput = ({onAdd}) => {
@@ -18,7 +18,7 @@ const CourseInput = ({onAdd}) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     // console.log(enteredText);
-    //바보
+
     if (enteredText.trim().length === 0) {
       setIsValid(false);
       return;
@@ -30,7 +30,7 @@ const CourseInput = ({onAdd}) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`form-control ${!isValid ? 'invalid' : ''}`}>
+      <div className={`${styles['form-control']} ${!isValid && styles.invalid}`}>
         <label>나의 목표</label>
         <input
           type="text"
