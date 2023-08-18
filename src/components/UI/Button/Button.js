@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Button.module.css';
 
 // import styled from 'styled-components';
-
 // const Button = styled.button`
 //   font: inherit;
 //   padding: 0.5rem 1.5rem;
@@ -15,19 +14,16 @@ import styles from './Button.module.css';
 //   &:focus {
 //     outline: none;
 //   }
-  
 //   &:hover,
 //   &:active {
 //     background: #ac0e77;
 //     border-color: #ac0e77;
 //     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 //   }
-  
 // `;
-
-const Button = ({ type, onClick, children}) => {
+const Button = ({ type, onClick, children }) => {
   return (
-    <button type={type} className={styles.button} onClick={onClick}>
+    <button type={type || 'button'} className={styles.button} onClick={onClick}>
       {children}
     </button>
   );
