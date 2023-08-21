@@ -1,15 +1,19 @@
-import React from 'react'
-import style from './UserList.module.css'
-import Card from '../UI/Card'
+import React from 'react';
+import styles from './UserList.module.css';
+import Card from '../UI/Card';
 
-const UserList = () => {
+const UserList = ({ users }) => {
+  console.log(users);
   return (
-    <Card class={style.users}>
-        <ul>
-
-        </ul>
+    <Card className={styles.users}>
+      <ul>
+        {users.map((user) => {
+          <li key={user.id}>
+            {user.username} ({user.age}세)
+          </li>;
+        })}
+      </ul>
     </Card>
-  )
-}
-
-export default UserList
+  );
+};
+export default UserList;
