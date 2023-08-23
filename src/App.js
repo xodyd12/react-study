@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MainHeader from './components/SideEffect/MainHeader/MainHeader';
 import Home from './components/SideEffect/Home/Home';
 import Login from './components/SideEffect/Login/Login';
+import AuthContext from './store/auth-context';
 
 const App = () => {
 
@@ -31,13 +32,15 @@ const App = () => {
   };
 
   return (
-    <>
-      <MainHeader />
+    <AuthContext.Provider value={{
+      isLoggedIn: isLoggedIn
+    }}>
+      <MainHeader/>
       <main>
         {isLoggedIn && <Home />}
         {!isLoggedIn && <Login onLogin={loginHandler} />}
       </main>
-    </>
+    </AuthContext.Provider>
   );
 };
 
